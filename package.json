@@ -1,0 +1,41 @@
+{
+  "name": "what-could-go-wrong",
+  "version": "1.0.0",
+  "private": true,
+  "description": "What Could Go Wrong? \u2014 A Bad Decisions Life Simulator. A choice-driven adult life sim for iOS and Android.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "content:report": "tsx scripts/content-report.ts",
+    "sync:ios": "npm run build && npx cap sync ios",
+    "sync:android": "npm run build && npx cap sync android",
+    "open:ios": "npx cap open ios",
+    "open:android": "npx cap open android",
+    "style:audit": "tsx scripts/style-audit.ts",
+    "icons": "node scripts/make-icons.mjs",
+    "verify": "npm run typecheck && npm run style:audit && npm test"
+  },
+  "dependencies": {
+    "@capacitor/app": "^6.0.2",
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/haptics": "^6.0.2",
+    "@capacitor/local-notifications": "^6.1.0",
+    "@capacitor/preferences": "^6.0.3",
+    "@capacitor/share": "^6.0.3",
+    "@capacitor/status-bar": "^6.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.2.0",
+    "@capacitor/cli": "^6.2.0",
+    "@capacitor/ios": "^6.2.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}
